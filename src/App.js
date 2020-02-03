@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header'
 import PhotoContainer from './components/PhotoContainer'
+import FavoritePhotosContainer from './components/FavoritePhotosContainer'
 
 class App extends React.Component{
   render(){

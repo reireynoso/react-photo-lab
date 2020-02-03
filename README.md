@@ -1,68 +1,89 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# React Photo Lab
 
-In the project directory, you can run:
+## Setup
 
-### `yarn start`
+Run `npm install`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To get you going, we've got a backend with photos! To get these, you're going to have to do the following:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Run `json-server --watch db.json`
+2. Visit `http://localhost:3000/photos` to confirm the list of photos.
 
-### `yarn test`
+If the command, `json-server` is not recognized, you might have to run `npm install -g json-server`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Let's run the app with `npm run start` or `npm start`. You will be asked if to use localhost:3001, consent to that.
 
-### `yarn build`
+## Background
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We have a React Photo Librarry. We want the App to show us a collection of all photos in the database and also keep track of which photos we like and add that to a separate list. We will be fetching the collection of Photos from the json server and render each one onto the page. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Deliverables
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**It might help to first draw out the component hierarchy**
 
-### `yarn eject`
+* Fetch the data from http://localhost:3000/photos
+* Render each photo with the PhotoCard component.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Each photo card will have button to change the complete status which will conditionally render based on the location of component.  (Also, if a todo is under the Complete, the button text should say Incomplete and vice-versa.)
+* When the button is clicked, the todo should be rendered in the appropriate component. BONUS: a PATCH request should be sent to http://localhost:3000/todos/:id to change the status of `completed` for the associated todo.
+Don't forget:
+```
+    method: "PATCH",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify({})
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Here is a gif of what it's supposed to look (Ignore the skull. That's a theme of my browser):
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Change Complete Gif](public/ChangingTasks.gif)
 
-## Learn More
+* Add a new todo to the collection and have it rendered. BONUS: Make a POST request to http://localhost:3000/todos. 
+Don't forget: 
+```
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify({})
+```
+* Delete a todo from the collection. BONUS: Make a DELETE request to http://localhost:3000/todos/:id
+Don't forget:
+```
+    method: "DELETE"
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Here is a gif of what it's supposed to look:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Add Delete Todo](public/AddDeleteTodo.gif)
 
-### Code Splitting
+* Incorporate the SearchBarComponent within the Incomplete Component to filter out todos. As you type, the Incomplete todos are dynamically rendered. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Here is a gif of what it's supposed to look:
 
-### Analyzing the Bundle Size
+![Search Todos](public/SearchTodos.gif)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Super Bonus
 
-### Making a Progressive Web App
+* Notice the Complete and Incomplete Components are a bit redundant. Is there anyway to reuse just one component for both of them?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Unnecessary Bonus but Good Practice Bonus
 
-### Advanced Configuration
+* Let's say we wanted to sort out all the todos by longest title on top. Generate a button that handles that event. If the button is clicked again, the todos should be listed in their original order in the database. It is entirely up to you where to place the methods and buttons.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Here is how the button should look like (just for style):
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+(This button should appear if it's not sorted)
+```
+<button className="ui button green">Sort by Title Length</button>
+```
+(This button should appear if it's sorted)
+```
+<button className="ui button purple">Sort Title Normally</button>
+```
