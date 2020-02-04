@@ -39,3 +39,5 @@ We have a React Photo Library. We want the App to show us a collection of all ph
 
 * Incorporate the `SearchBarComponent` under `PhotoContainer`. The goal is to `filter` out the photos whose author matches what is being typed. This should be dynamic. (i.e As I am typing, the photos in the container are immediately filtered)
 
+* Notice that `PhotoContainer` and `FavoritePhotosContainer` seem pretty redundant. Any way we can reuse just one component?
+
