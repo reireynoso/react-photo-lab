@@ -9,7 +9,7 @@ export default class PhotoContainer extends Component {
       <h1>All Photos</h1>
       {/* <SearchBarComponent/> */}
       <div className="ui special cards three column grid">
-          {/* render a PhotoCard for each photo */}
+          {/* render a PhotoCard for EACH photo */}
 
       </div>
     </div>
