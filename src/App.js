@@ -12,9 +12,9 @@ class App extends React.Component{
           <Header/>
           {/* Only one of the components in the bottom should render */}
           {/* How can we manage that? */}
-          {/* <AddNewPhotoForm/>
+          {/* <AddNewPhotoForm/> */}
           <PhotoContainer/>
-          <FavoritePhotosContainer/> */}
+          {/* <FavoritePhotosContainer/>  */}
       </div>
     )
   }
