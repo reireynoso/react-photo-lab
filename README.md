@@ -17,7 +17,7 @@ Let's run the app with `npm run start` or `npm start`. You will be asked if to u
 
 ## Background
 
-We have a React Photo Librarry. We want the App to show us a collection of all photos in the database and also keep track of which photos we like and add that to a separate list. We will be fetching the collection of Photos from the json server and render each one onto the page. 
+We have a React Photo Library. We want the App to show us a collection of all photos in the database and also keep track of which photos we like and add that to a separate list. We will be fetching the collection of Photos from the json server and render each one onto the page. We want to be able to render either a collection of all photos OR a collection of favorites photos at one time.
 
 ## Deliverables
 
@@ -25,23 +25,17 @@ We have a React Photo Librarry. We want the App to show us a collection of all p
 
 * Fetch the data from http://localhost:3000/photos
 * Render each photo with the PhotoCard component.
-
-
-* Each photo card will have button to change the complete status which will conditionally render based on the location of component.  (Also, if a todo is under the Complete, the button text should say Incomplete and vice-versa.)
-* When the button is clicked, the todo should be rendered in the appropriate component. BONUS: a PATCH request should be sent to http://localhost:3000/todos/:id to change the status of `completed` for the associated todo.
-Don't forget:
+* Each photo card will have button that says Add to Favorites, when clicked, will add to the favorites collection (i.e it should be rendered in the FavoritePhotosContainer component). The button text should change to Already in Favorites with the button being disabled. This can accomplished by adding a `disabled ` attribute to the button element.
 ```
-    method: "PATCH",
-    headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-    },
-    body: JSON.stringify({})
+   <button disabled className="ui button blue">Already in Favorites</button>
 ```
+* In the `Header` component, we have a div (button) of "All Photos", "Favorites", and "Add New Photo". By default, when the page loads, All Photos container should render with the collection of all photos fetched from the database. When Favorites is clicked, the `FavoritePhotosContainer` component should render with only the photos that were favorited. When Add New Photo is clicked, the `AddNewPhotoForm` should render.
 
-Here is a gif of what it's supposed to look (Ignore the skull. That's a theme of my browser):
+* In the `FavoritePhotosContainer`, the `PhotoCard` generated should have a button with the text "Remove from Favorites". When this button is clicked, it should remove the specific photo from the favorites collection.
 
-![Change Complete Gif](public/ChangingTasks.gif)
+* In the `AddNewPhotoForm`, when the form is submitted, a new photo is stored in the collection of all photos. (You might have to get creative if you're working with the ID)
+
+
 
 * Add a new todo to the collection and have it rendered. BONUS: Make a POST request to http://localhost:3000/todos. 
 Don't forget: 

@@ -11,6 +11,9 @@ const Header = () => {
                     <div className="ui inverted button">
                         Favorites
                     </div>
+                    <div className="ui inverted button">
+                        Add New Photo
+                    </div>
                 </div>
             </div>
         </div>
