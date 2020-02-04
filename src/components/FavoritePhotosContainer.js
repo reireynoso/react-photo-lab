@@ -7,7 +7,7 @@ export default class FavoritePhotosContainer extends Component {
     <div className="ui container">
       <h1>Favorite Photos</h1>
       <div className="ui special cards three column grid">
-          {/* <PhotoCard/> */}
+           {/* render a PhotoCard for each photo */}
       </div>
     </div>
     );
