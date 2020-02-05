@@ -25,7 +25,7 @@ We have a React Photo Library. We want the App to show us a collection of all ph
 
 * Fetch the data from http://localhost:3000/photos
 * Render each photo with the PhotoCard component.
-* Each photo card will have button that says Add to Favorites, when clicked, will add to the favorites collection (i.e it should be rendered in the FavoritePhotosContainer component). The button text should change to Already in Favorites with the button being disabled. This can accomplished by adding a `disabled ` attribute to the button element.
+* Each photo card will have button that says Add to Favorites, when clicked, will add to the favorites collection (i.e it should be rendered in the FavoritePhotosContainer component). The button text should change to Already in Favorites with the button being disabled. This can accomplished by adding a `disabled ` attribute to the button element. (Heads up: since PhotoContainer and FavoritePhotoContainer both use the PhotoCard component, you MAY need to let PhotoCard know which one is rendering it)
 ```
    <button disabled className="ui button blue">Already in Favorites</button>
 ```
