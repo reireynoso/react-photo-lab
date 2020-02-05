@@ -7,8 +7,19 @@ export default class AddNewPhotoForm extends Component {
         download_url: ""
     }
 
-    handleOnSubmit = () => {
+    handleOnChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
+    handleOnSubmit = (e) => {
+        e.preventDefault()
+        this.props.handleSubmit(this.state)
+        this.setState({
+            author: "",
+            download_url: ""
+        })
     }
 
     render() {
