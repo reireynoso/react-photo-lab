@@ -5,7 +5,7 @@ const PhotoCard = () => {
         <div className="column">
             <div className="ui fluid card">
                 <div className="image">
-                    <img src={"https://picsum.photos/id/0/5616/3744"}/>
+                    <img alt="" src={"https://picsum.photos/id/0/5616/3744"}/>
                 </div>
                 <div className="content">
                     <div className="header">Elyse</div>
