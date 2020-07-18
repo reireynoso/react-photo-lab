@@ -19,7 +19,7 @@ const PhotoCard = (props) => {
         <div className="column">
             <div className="ui fluid card">
                 <div className="image">
-                    <img src={download_url}/>
+                    <img alt={download_url} src={download_url}/>
                 </div>
                 <div className="content">
                     <div className="header">{author}</div>
